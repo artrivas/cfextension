@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "Hello Extensions",
+    "description": "Base Level Extension",
+    "version": "1.0",
+    "action": {
+      "default_popup": "popup/popup.html",
+      "default_icon": "images/h1.png"
+    },
+    "content_scripts": [
+      {
+        "js": ["scripts/content.js"],
+        "matches": [
+          "https://developer.chrome.com/docs/extensions/*",
+          "https://developer.chrome.com/docs/webstore/*"
+        ]
+      }
+    ],
+    "permissions": [
+      "activeTab",
+      "scripting",
+      "storage",
+      "webRequest",
+      "declarativeNetRequest"
+    ],
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    "background": {
+      "service_worker": "background.js",
+      "type": "module"
+    }
+  }
+  
